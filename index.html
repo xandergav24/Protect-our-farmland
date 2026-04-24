@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Protect Our Farmland</title>
+  <style>
+    :root {
+      --green: #174f2a;
+      --green-2: #2f6b3d;
+      --gold: #d8a928;
+      --tan: #f4ead6;
+      --brown: #7a4a23;
+      --cream: #fffaf0;
+      --text: #1f2a1f;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(rgba(23, 79, 42, 0.88), rgba(23, 79, 42, 0.88)), url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1600&q=80');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+      padding: 95px 20px;
+    }
+
+    .logo {
+      max-width: 290px;
+      width: 75%;
+      margin: 0 auto 24px auto;
+      display: block;
+    }
+
+    header h1 {
+      font-size: 3.25rem;
+      margin-bottom: 12px;
+      letter-spacing: 1px;
+    }
+
+    header p {
+      font-size: 1.25rem;
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .tagline {
+      color: var(--gold);
+      font-weight: bold;
+      margin-top: 16px;
+      font-size: 1.15rem;
+    }
+
+    nav {
+      background: var(--green);
+      padding: 14px 20px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 13px;
+      font-weight: bold;
+      font-size: 0.95rem;
+    }
+
+    nav a:hover { color: var(--gold); }
+
+    section { padding: 60px 8%; }
+
+    .section-title {
+      color: var(--green);
+      font-size: 2rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .intro-text {
+      max-width: 900px;
+      margin: 0 auto 25px auto;
+      text-align: center;
+      font-size: 1.08rem;
+    }
+
+    .opinion-box {
+      background: var(--green);
+      color: white;
+      padding: 35px;
+      border-radius: 18px;
+      text-align: center;
+      max-width: 970px;
+      margin: auto;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .opinion-box h2 {
+      color: var(--gold);
+      margin-bottom: 12px;
+      font-size: 1.9rem;
+    }
+
+    .stats-grid, .audience-grid, .component-grid, .podcast-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 22px;
+      margin-top: 30px;
+    }
+
+    .card, .component-card, .podcast-card {
+      background: white;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    }
+
+    .card { border-top: 7px solid var(--gold); }
+    .component-card { border-left: 8px solid var(--green-2); }
+    .podcast-card { border-top: 7px solid var(--brown); }
+
+    .card h3, .component-card h3, .podcast-card h3 {
+      color: var(--green);
+      margin-bottom: 10px;
+    }
+
+    .stat-number {
+      color: var(--brown);
+      font-size: 2.25rem;
+      font-weight: bold;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .source {
+      font-size: 0.82rem;
+      color: #555;
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 35px;
+      align-items: center;
+    }
+
+    .campaign-image {
+      width: 100%;
+      max-width: 560px;
+      display: block;
+      margin: auto;
+      border-radius: 16px;
+      background: #000;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.16);
+    }
+
+    .pdf-frame {
+      width: 100%;
+      height: 720px;
+      border: 3px solid var(--green);
+      border-radius: 14px;
+      background: white;
+      margin-top: 25px;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--green);
+      color: white;
+      text-decoration: none;
+      padding: 13px 20px;
+      border-radius: 999px;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+    }
+
+    .btn:hover { background: var(--brown); }
+
+    audio {
+      width: 100%;
+      margin-top: 16px;
+    }
+
+    .cta {
+      background: var(--brown);
+      color: white;
+      text-align: center;
+      padding: 60px 8%;
+    }
+
+    .cta h2 {
+      color: var(--gold);
+      font-size: 2rem;
+      margin-bottom: 18px;
+    }
+
+    .cta ol {
+      max-width: 700px;
+      margin: 20px auto;
+      text-align: left;
+      font-size: 1.1rem;
+    }
+
+    .cta li { margin-bottom: 10px; }
+
+    footer {
+      background: var(--green);
+      color: white;
+      padding: 35px 8%;
+      font-size: 0.9rem;
+    }
+
+    footer h3 { color: var(--gold); margin-bottom: 10px; }
+    footer p { margin-bottom: 10px; }
+
+    @media (max-width: 700px) {
+      header h1 { font-size: 2.25rem; }
+      nav a { display: inline-block; margin: 7px; }
+      .pdf-frame { height: 520px; }
+    }
+  </style>
+</head>
+<body>
+  <header id="home">
+    <img class="logo" src="campaign-logo.png" alt="Protect Our Farmland campaign logo" />
+    <h1>Protect Our Farmland</h1>
+    <p>Farmland is not empty land waiting to be developed. It is the foundation of our food supply, rural economies, and community identity.</p>
+    <p class="tagline">Protect the land that feeds us.</p>
+  </header>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#issue">Issue</a>
+    <a href="#proof">Facts</a>
+    <a href="#blog">Blog</a>
+    <a href="#infographic">Infographic</a>
+    <a href="#podcast">Podcast</a>
+    <a href="#social">Social Media</a>
+    <a href="#action">Take Action</a>
+    <a href="#sources">Works Cited</a>
+  </nav>
+
+  <section id="issue">
+    <div class="opinion-box">
+      <h2>Stop Paving Over the Land That Feeds Us</h2>
+      <p>Farmland loss is a serious issue that threatens our food security, rural communities, and long term economic stability. Continued urban expansion onto agricultural land is something we cannot afford economically or culturally.</p>
+    </div>
+  </section>
+
+  <section id="proof">
+    <h2 class="section-title">The Issue Can Be Proven</h2>
+    <p class="intro-text">The facts below support this campaign’s message across every media component. They show that farmland loss is measurable, costly, and connected to the well being of farming communities.</p>
+
+    <div class="stats-grid">
+      <div class="card">
+        <span class="stat-number">18 million</span>
+        <h3>Acres at risk</h3>
+        <p>Up to 18 million acres of U.S. agricultural land could be affected by urbanization by 2040 if current development trends continue.</p>
+        <p class="source">Xie et al., 2023</p>
+      </div>
+      <div class="card">
+        <span class="stat-number">21 million</span>
+        <h3>Acres of low-density growth</h3>
+        <p>Low-density residential development is projected to expand by about 21 million acres by 2040, adding pressure to agricultural land.</p>
+        <p class="source">Xie et al., 2023</p>
+      </div>
+      <div class="card">
+        <span class="stat-number">30–40%</span>
+        <h3>Higher yield potential</h3>
+        <p>Urbanizing regions often convert highly productive cropland with 30–40% higher yield potential than replacement land.</p>
+        <p class="source">Andrade et al., 2021</p>
+      </div>
+      <div class="card">
+        <span class="stat-number">7</span>
+        <h3>Growth scenarios modeled</h3>
+        <p>Urban growth research in California’s San Joaquin Valley compared seven development scenarios and found sprawling status quo growth created the greatest farmland and revenue losses.</p>
+        <p class="source">Roth et al., 2012</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="background: var(--tan);">
+    <div class="split">
+      <div>
+        <h2 class="section-title" style="text-align:left;">Why This Matters to Me</h2>
+        <p>As someone studying agriculture and communicating with different audiences about agricultural issues, I see farmland as more than open space. Farmland not only supports farmers, but also the local economies and rural communities as well. When that land disappears under roads and subdivisions, communities lose something that cannot easily be replaced.</p>
+        <p>That is why this campaign uses a direct but practical message that growth is important, but it should not come at the cost of losing the land that feeds us.</p>
+      </div>
+      <img class="campaign-image" src="campaign-logo.png" alt="Protect Our Farmland campaign image" />
+    </div>
+  </section>
+
+  <section id="blog">
+    <h2 class="section-title">Blog Post</h2>
+    <p class="intro-text">This blog post explains why farmland loss should concern everyone, including farmers, policymakers, and everyday consumers. It connects farmland conversion to food security, economic risk, rural culture, and personal experience.</p>
+    <div class="button-row">
+      <a class="btn" href="blog-post.pdf" target="_blank">Open Blog Post PDF</a>
+    </div>
+  </section>
+
+  <section id="infographic" style="background: var(--tan);">
+    <h2 class="section-title">Infographic</h2>
+    <p class="intro-text">This infographic visually explains this campaign’s central message: farmland loss threatens food production, economic stability, and farming culture. It also gives readers simple steps they can take to help protect farmland.</p>
+    <iframe class="pdf-frame" src="infographic.pdf" title="Protect Our Farmland Infographic"></iframe>
+    <div class="button-row">
+      <a class="btn" href="infographic.pdf" target="_blank">Open Infographic PDF</a>
+    </div>
+  </section>
+
+  <section id="podcast">
+    <h2 class="section-title">Podcast Series: Why Farmland Loss Matters</h2>
+    <p class="intro-text">This three-episode podcast series explains What farmland loss is, the effects of that loss , and what people can do to protect farmland.</p>
+
+    <div class="podcast-grid">
+      <div class="podcast-card">
+        <h3>Episode 1: Why Are We Losing So Much Farmland?</h3>
+        <p>This episode introduces farmland loss and explains how urban expansion converts agricultural land.</p>
+        <audio controls>
+          <source src="episode-1.m4a" type="audio/mp4" />
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+
+      <div class="podcast-card">
+        <h3>Episode 2: The Hidden Costs of Urban Sprawl</h3>
+        <p>This episode explores agricultural revenue losses, public service costs, and community impacts.</p>
+        <audio controls>
+          <source src="episode-2.m4a" type="audio/mp4" />
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+
+      <div class="podcast-card">
+        <h3>Episode 3: How Can We Protect Our Farmland?</h3>
+        <p>This episode focuses on smart growth, local food systems, and simple actions listeners can take.</p>
+        <audio controls>
+          <source src="episode-3.m4a" type="audio/mp4" />
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+    </div>
+  </section>
+
+  <section id="social" style="background: var(--tan);">
+    <h2 class="section-title">Social Media Mock Posts</h2>
+    <p class="intro-text">The campaign’s social media posts use the handle <strong>@ProtectOurFarmland</strong> and the tagline <strong>Protect the land that feeds us</strong>. The posts share research backed facts through Instagram and Twitter/X visuals.</p>
+    <div class="button-row">
+      <a class="btn" href="social-media-posts.pdf" target="_blank">Open Social Media Posts PDF</a>
+    </div>
+  </section>
+
+  <section id="action" class="cta">
+    <h2>Protect Farmland Before It’s Gone</h2>
+    <p>This campaign brings every media piece together around one clear message: farmland protection starts with awareness and local action.</p>
+    <ol>
+      <li>Support smart growth policies in your town, county, or state.</li>
+      <li>Learn where development is replacing farmland in your community.</li>
+      <li>Support local farmers and local food systems.</li>
+      <li>Share reliable information about farmland loss with others.</li>
+    </ol>
+    <p class="tagline">Protect the land that feeds us.</p>
+  </section>
+
+  <footer id="sources">
+    <h3>Works Cited</h3>
+    <p>Andrade, J., Diogo, V., & Koomen, E. (2021). Impact of urbanization trends on production of key staple crops. <em>Ambio, 51</em>(4), 1039–1051. https://doi.org/10.1007/s13280-021-01674-z</p>
+    <p>Roth, N. E., Thorne, J. H., Johnston, R. A., Quinn, J. F., & McCoy, M. C. (2012). Modeling impacts to agricultural revenue and government service costs from urban growth. <em>Journal of Agriculture, Food Systems, and Community Development, 2</em>(4). https://doi.org/10.5304/jafscd.2012.024.008</p>
+    <p>Wang, D., Qian, W., & Guo, X. (2019). Gains and losses: Does farmland acquisition harm farmers’ welfare? <em>Land Use Policy, 86</em>, 78–90. https://doi.org/10.1016/j.landusepol.2019.04.037</p>
+    <p>Xie, Y., Lark, T. J., Brown, C., & Gibbs, H. K. (2023). U.S. farmland under threat of urbanization: Future development scenarios to 2040. <em>Land, 12</em>(3), 574. https://doi.org/10.3390/land12030574</p>
+  </footer>
+</body>
+</html>
